@@ -1,0 +1,130 @@
+.portfolio {
+  padding: 0.1px 0 0.1px 0;
+  max-width: 1140px;
+  margin: 0 70px;
+}
+
+.portfolio__header {
+  margin: 0 auto 50px 0;
+  width: 250px;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #8b8b8b;
+}
+
+.portfolio__column-links {
+  color: #fff;
+  padding: 0;
+  margin: 0 0 106px 0;
+}
+
+.portfolio__paragrph {
+  margin: 0 auto 19px 0;
+  max-width: 880px;
+  font-size: 30px;
+  line-height: 50px;
+  font-style: normal;
+}
+
+.portfolio__arrow {
+  height: 60px;
+  width: 29px;
+  padding: 0;
+  background-image: url(../../images/arrow.svg);
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.portfolio__arrow:hover {
+  opacity: 0.7;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+}
+
+.portfolio__bottom {
+  display: flex;
+  border-bottom: 1px solid #424242;
+  margin-bottom: 20px;
+}
+
+.portfolio__bottom:last-of-type {
+  display: flex;
+  border-bottom: 1px solid #202020;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    max-width: 668px;
+    margin: 0 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio__column-links {
+    margin: 0 0 71px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio__paragrph {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio__bottom {
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio__arrow {
+    width: 27px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio__bottom:last-of-type {
+    border-bottom: 1px solid #202020;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .portfolio__paragrph {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .portfolio__arrow {
+    width: 18px;
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .portfolio__column-links {
+    margin: 0 0 51px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .portfolio {
+    max-width: 292px;
+    margin: 0 14px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .portfolio__header {
+    margin: 0 auto 40px 0;
+    font-size: 14px;
+  }
+}

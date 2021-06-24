@@ -1,0 +1,142 @@
+.not-found {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #202020;
+}
+
+.not-found__number {
+  display: block;
+  margin: 246px auto 5px auto;
+  height: 169px;
+  width: 400px;
+  font-size: 140px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 169px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+}
+
+.not-found__text {
+  margin: 0 auto 184px auto;
+  height: 19px;
+  width: 400px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+}
+
+.not-found__link-back {
+  text-decoration: none;
+  display: block;
+  margin: 0 auto 60px auto;
+  height: 17px;
+  width: 42px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #4285f4;
+}
+
+.not-found__link-back:hover {
+  opacity: 0.7;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .not-found {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .not-found__number {
+    display: block;
+    margin: 308px auto 5px auto;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .not-found {
+    max-width: 420px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .not-found__number {
+    display: block;
+    margin: 408px auto 5px auto;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .not-found__link-back {
+    display: block;
+    margin: 0 auto 222px auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .not-found__number {
+    display: block;
+    margin: 329px auto 10px auto;
+    height: 97px;
+    width: 300px;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 97px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .not-found__text {
+    margin: 0 auto 284px auto;
+    height: 15px;
+    width: 300px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .not-found__link-back {
+    text-decoration: none;
+    display: block;
+    margin: 0 auto 30px auto;
+    height: 15px;
+    width: 36px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #4285f4;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .not-found {
+    max-width: 320px;
+  }
+}

@@ -8,10 +8,11 @@ function SearchForm() {
         <label>
           <input
             className='search-form__input'
+            name='film'
             type='text'
             placeholder='Фильм'
-            name='film'
             autocomplete='off'
+            required
           />
         </label>
 

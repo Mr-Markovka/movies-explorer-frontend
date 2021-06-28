@@ -33,6 +33,14 @@
   outline: 0;
   color: #fff;
 }
+.search-form__input:invalid:not(:focus):not(:placeholder-shown) {
+  border-bottom: 1px solid #424242;
+}
+
+/* .search-form__input:invalid {
+  border-bottom: 1px solid #ee3465;
+  color: #ee3465;
+} */
 
 .search-form__button {
   width: 59px;

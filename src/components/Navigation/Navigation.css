@@ -3,14 +3,14 @@
     display: none;
   }
 }
-
 @media screen and (max-width: 768px) {
   .navigation {
-    position: fixed;
+    position: relative;
+    display: flex;
     max-width: 768px;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #202020;
@@ -20,6 +20,7 @@
     height: 74px;
   }
 }
+
 @media screen and (max-width: 768px) {
   .navigation__header-logo {
     width: 38px;
@@ -34,6 +35,8 @@
 }
 @media screen and (max-width: 768px) {
   .navigation__btn {
+    position: relative;
+    justify-content: center;
     display: flex;
     align-items: center;
     position: absolute;
@@ -43,6 +46,7 @@
     height: 44px;
     cursor: pointer;
     transition: 0.4s;
+    z-index: 999999;
   }
 }
 @media screen and (max-width: 768px) {
@@ -80,18 +84,22 @@
 }
 @media screen and (max-width: 768px) {
   .navigation__container {
-    /* display: block; */
     position: fixed;
-    /* position: absolute; */
-    visibility: hidden;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
+    z-index: 999;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: 0.5s;
+    overflow: hidden;
     right: -100%;
     margin: 0;
     width: 520px;
-    /* height: 100%; */
+    height: 100%;
     background-color: #202020;
-    /* opacity: 1; */
-    z-index: 999;
   }
 }
 @media screen and (max-width: 768px) {
@@ -174,6 +182,8 @@
     height: 100%;
     visibility: visible;
     right: 0;
+    z-index: 9999;
+    display: block;
   }
 }
 @media screen and (max-width: 768px) {
@@ -181,6 +191,7 @@
     background: transparent;
   }
 }
+
 @media screen and (max-width: 768px) {
   .navigation__checkbox:checked ~ .navigation__btn .navigation__icon::before,
   .navigation__checkbox:checked ~ .navigation__btn .navigation__icon::after {

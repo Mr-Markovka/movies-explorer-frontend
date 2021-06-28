@@ -22,7 +22,7 @@ function Header() {
       </Route>
 
       <Route path='/movies'>
-        <header className='header'>
+        <header className='header header_burger'>
           <Link to='/' className='header__link'>
             <img className='header__logo' alt='Логотип.' src={logo} />
           </Link>
@@ -44,7 +44,7 @@ function Header() {
       </Route>
 
       <Route path='/saved-movies'>
-        <header className='header'>
+        <header className='header header_burger'>
           <Link to='/' className='header__link'>
             <img className='header__logo' alt='Логотип.' src={logo} />
           </Link>
@@ -67,9 +67,9 @@ function Header() {
       </Route>
 
       <Route path='/profile'>
-        <header className='header'>
+        <header className='header header_burger'>
           <Link to='/' className='header__link'>
-            <img className='header__logo_auth' alt='Логотип.' src={logo} />
+            <img className='header__logo' alt='Логотип.' src={logo} />
           </Link>
           <div className='header__block header__block_movies'>
             <Link to='/movies' className='header__link header__movies'>

@@ -32,19 +32,19 @@ function AboutProject() {
 
       <div className='project__tracker-block'>
         <div className='project__tracker-left'>
-          <p className='project__tracker-paragrph'>1 неделя</p>
+          <p className='project__tracker-paragrph_up'>1 неделя</p>
         </div>
         <div className='project__tracker-right'>
-          <p className='project__tracker-paragrph'>4 недели</p>
+          <p className='project__tracker-paragrph_up'>4 недели</p>
         </div>
       </div>
 
       <div className='project__tracker-block'>
         <div className='project__tracker-text-left'>
-          <p className='project__tracker-paragrph'>Back-end</p>
+          <p className='project__tracker-paragrph_down'>Back-end</p>
         </div>
         <div className='project__tracker-text-right'>
-          <p className='project__tracker-paragrph'>Front-end</p>
+          <p className='project__tracker-paragrph_down'>Front-end</p>
         </div>
       </div>
     </section>

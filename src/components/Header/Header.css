@@ -70,7 +70,7 @@
 }
 
 .header__link_active {
-  text-decoration: underline;
+  font-weight: 500;
 }
 
 .header__link_auth {
@@ -143,6 +143,11 @@
     max-width: 768px;
   }
 }
+@media screen and (max-width: 768px) {
+  .header_burger {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .header__logo {
@@ -170,6 +175,12 @@
 @media screen and (max-width: 768px) {
   .header__profile-logo {
     display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__link_active {
+    text-decoration: underline;
   }
 }
 

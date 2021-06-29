@@ -90,7 +90,6 @@
     align-items: center;
     justify-content: center;
     top: 0;
-    z-index: 999;
     box-sizing: border-box;
     opacity: 1;
     transition: 0.5s;
@@ -108,7 +107,7 @@
     list-style: none;
     padding-left: 0;
     width: 200px;
-    margin: 159px auto 627px auto;
+    margin: 159px auto 0 auto;
   }
 }
 @media screen and (max-width: 768px) {
@@ -183,9 +182,11 @@
     visibility: visible;
     right: 0;
     z-index: 9999;
-    display: block;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
+
 @media screen and (max-width: 768px) {
   .navigation__checkbox:checked ~ .navigation__btn .navigation__icon {
     background: transparent;
@@ -231,6 +232,11 @@
 }
 @media screen and (max-width: 524px) {
   .navigation__list {
-    margin: 159px auto 444px auto;
+    margin: 159px auto 0 auto;
+  }
+}
+@media screen and (max-width: 524px) {
+  .navigation__block_profile {
+    margin: 0 auto 48px auto;
   }
 }

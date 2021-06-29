@@ -6,6 +6,7 @@ import './Navigation.css';
 function Navigation() {
   return (
     <nav className='navigation'>
+    <div className='navigation'>
       <img className='navigation__header-logo' alt='Логотип.' src={logo} />
       <input type='checkbox' id='checkbox' className='navigation__checkbox' />
       <label for='checkbox' className='navigation__btn'>
@@ -41,6 +42,7 @@ function Navigation() {
           </Link>
           <div className='navigation__profile-logo' />
         </div>
+      </div>
       </div>
     </nav>
   );

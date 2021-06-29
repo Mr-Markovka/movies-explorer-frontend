@@ -1,0 +1,17 @@
+@import url(../../vendor/normalize.css);
+@import url(../../vendor/fonts.css);
+
+.app {
+  max-width: 100%;
+  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  background-color: #202020;
+  padding: 1px;
+  min-height: 100vh;
+  position: relative;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}

@@ -1,0 +1,246 @@
+.cards__list {
+  background-color: #202020;
+  list-style-type: none;
+  max-width: 1140px;
+  margin: 70px auto 14px auto;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  column-gap: 30px;
+  row-gap: 59px;
+}
+
+.card__item {
+  border-radius: 6px;
+  background-color: #202020;
+  max-width: 360px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 99;
+}
+
+.card__like {
+  height: 21px;
+  min-width: 72px;
+  padding: 0;
+  top: 14px;
+  right: 14px;
+  position: absolute;
+  border: none;
+  border-radius: 30px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-image: url(../../images/save.svg);
+  cursor: pointer;
+}
+
+.card__like:hover {
+  opacity: 0.8;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+}
+
+.card__like_active {
+  height: 21px;
+  width: 21px;
+  padding: 0;
+  top: 14px;
+  right: 14px;
+  position: absolute;
+  border: none;
+  background-image: url(../../images/like.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.card__like_active:hover {
+  opacity: 0.8;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+}
+
+.card__img {
+  width: 360px;
+  height: 201px;
+  background-color: #202020;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 14px;
+  object-fit: cover;
+}
+
+.card__bottom {
+  width: 360px;
+  background-color: #202020;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__title {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  color: #fff;
+  margin: 0;
+}
+
+.card__timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 52px;
+  height: 18px;
+  border-radius: 3px;
+  background: #2f2f2f;
+  color: #8b8b8b;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 10px;
+  text-align: center;
+  margin: 0;
+}
+
+.cards__more {
+  display: flex;
+}
+
+.cards__more-button {
+  width: 320px;
+  height: 36px;
+  padding: 0;
+  margin: 50px auto 80px auto;
+  border: none;
+  border-radius: 6px;
+  background-color: #2f2f2f;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 0px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cards__more-button:hover {
+  opacity: 0.8;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+}
+
+@media screen and (max-width: 1141px) {
+  .cards__list {
+    max-width: 1000px;
+    margin: 70px auto 14px auto;
+    grid-template-columns: repeat(auto-fit, minmax(339px, 1fr));
+    column-gap: 30px;
+    row-gap: 47px;
+  }
+}
+
+@media screen and (max-width: 1141px) {
+  .card__img {
+    width: 339px;
+    height: 190px;
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 1141px) {
+  .card__item {
+    width: 339px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1141px) {
+  .card__bottom {
+    width: 339px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .cards__list {
+    max-width: 708px;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    row-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .card__img {
+    width: 360px;
+    height: 201px;
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .card__item {
+    width: 360px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .card__bottom {
+    width: 360px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .cards__more-button {
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .cards__list {
+    max-width: 300px;
+    margin: 40px auto 13px auto;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 30px;
+    row-gap: 47px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .card__item {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .card__img {
+    width: 300px;
+    height: 168px;
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .card__bottom {
+    width: 300px;
+  }
+}

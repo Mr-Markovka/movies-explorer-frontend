@@ -38,21 +38,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (loggedIn) {
-      history.push('/movies');
-    }
-  }, [history, loggedIn]);
-
-  useEffect(() => {
     const token = localStorage.getItem('jwt');
     if (loggedIn) {
       mainApi
         .getUserInfo(token)
         .then((userData) => {
           setLoggedIn(true);
-
+          localStorage.setItem('loggedIn', loggedIn);
           setCurrentUser(userData);
-          history.push('/movies');
         })
         .catch((err) => {
           console.log(err);
@@ -87,9 +80,7 @@ function App() {
         .getUserInfo(token)
         .then((user) => {
           setLoggedIn(true);
-
           setCurrentUser(user);
-          history.push('/movies');
         })
         .catch(() => {
           localStorage.removeItem('token');
@@ -146,6 +137,7 @@ function App() {
     localStorage.removeItem('jwt');
     localStorage.removeItem('userId');
     localStorage.removeItem('BeatFilms');
+    localStorage.removeItem('loggedIn');
     setLoggedIn(false);
   }
 

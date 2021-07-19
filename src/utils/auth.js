@@ -1,8 +1,6 @@
-export const BASE_URL = 'http://localhost:3001';
-// export const BASE_URL = 'https://api.films-rover.nomoredomains.icu';
+export const BASE_URL = 'https://api.films-rover.nomoredomains.icu';
 
 const checkResponse = (res) => {
-  console.log('###checkResponse-res:', res);
   if (!res.ok) {
     return Promise.reject(res);
   }

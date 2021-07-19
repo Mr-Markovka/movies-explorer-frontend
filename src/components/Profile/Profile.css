@@ -30,7 +30,7 @@
 .profile__box-down {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto 220px auto;
+  margin: 0 auto 20px auto;
 }
 
 .profile__input {
@@ -44,7 +44,7 @@
   letter-spacing: 0px;
   text-align: left;
   margin: 0;
-  padding: 0;
+  padding: 0 0 10px 0;
   color: #ffffff;
   background-color: #202020;
   border: 0;
@@ -60,10 +60,10 @@
   border-bottom: 1px solid #202020;
 }
 
-/* .profile__input:invalid {
+.profile__input:invalid {
   border-bottom: 1px solid #ee3465;
   color: #ee3465;
-} */
+}
 
 .profile__input-error {
   display: block;
@@ -75,20 +75,21 @@
   text-align: left;
   color: #ee3465;
 }
-
-.profile__request-error {
-  display: none;
+.profile__wrap {
+  margin: 145px 0 0 0;
 }
 
 /*Текст ошибки после отправки запроса*/
-.profile__request-error_active {
-  margin: 0 auto 20px auto;
+.profile__request-error {
   display: block;
+  margin: 20px 0 0 0;
+  padding: 0;
+  width: 396px;
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
   line-height: 13px;
-  letter-spacing: 0em;
+  letter-spacing: 0px;
   text-align: center;
   color: #ee3465;
 }
@@ -110,7 +111,7 @@
   background-color: #202020;
   border: none;
   padding: 0;
-  margin: 0 auto 16px auto;
+  margin: 20px auto 16px auto;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -121,10 +122,15 @@
 }
 
 /* состояние кнопки при редактировании формы*/
-.profile__btn-submit_edit {
+.profile__btn-submit-edit {
+  display: block;
+  color: #fff;
+  background: #3456f3;
+  border: none;
+  padding: 0;
   height: 45px;
   width: 410px;
-  margin: 0 auto 59px auto;
+  margin: 20px auto 16px auto;
   border-radius: 3px;
   font-size: 14px;
   font-style: normal;
@@ -132,8 +138,6 @@
   line-height: 17px;
   letter-spacing: 0em;
   text-align: center;
-  background: #3456f3;
-  color: #fff;
   cursor: pointer;
 }
 
@@ -141,7 +145,7 @@
 .profile__btn-submit_invalid {
   height: 45px;
   width: 410px;
-  margin: 0 auto 59px auto;
+  margin: 20px auto 59px auto;
   border-radius: 3px;
   font-size: 14px;
   font-style: normal;

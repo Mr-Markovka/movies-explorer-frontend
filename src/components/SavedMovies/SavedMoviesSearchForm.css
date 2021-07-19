@@ -1,10 +1,10 @@
-.search-form {
+.saved-movies-search-form {
   padding: 0.1px 0 0.1px 0;
   max-width: 1280px;
   margin: 0 70px;
 }
 
-.search-form__block {
+.saved-movies-search-form__block {
   display: flex;
   justify-content: space-between;
   padding-bottom: 13px;
@@ -12,7 +12,7 @@
   margin: 70px 0 32px 0;
 }
 
-.search-form__input {
+.saved-movies-search-form__input {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -33,15 +33,11 @@
   outline: 0;
   color: #fff;
 }
-.search-form__input:invalid:not(:focus):not(:placeholder-shown) {
+.saved-movies-search-form__input:invalid:not(:focus):not(:placeholder-shown) {
   border-bottom: 1px solid #424242;
 }
 
-/* .search-form__input:invalid {
-  border-bottom: 1px solid #ee3465;
-  color: #ee3465;
-} */
-.search-form-error {
+.saved-movies-search-form__error {
   display: block;
   font-size: 10px;
   font-style: normal;
@@ -51,7 +47,7 @@
   text-align: left;
   color: #ee3465;
 }
-.search-form__button {
+.saved-movies-search-form__button {
   width: 59px;
   height: 34px;
   border-radius: 48px;
@@ -67,7 +63,7 @@
   cursor: pointer;
 }
 
-.search-form__button:hover {
+.saved-movies-search-form__button:hover {
   opacity: 0.8;
   transition: all 1s ease;
   -webkit-transition: all 1s ease;
@@ -75,16 +71,11 @@
   -moz-transition: all 1s ease;
 }
 
-.search-form__checkbox-wrap {
+.saved-movies-search-form__checkbox-wrap {
   display: flex;
 }
 
-/* .search-form__checkbox-label {
-  width: 36px;
-  height: 20px;
-} */
-
-.search-form__invisible-checkbox {
+.saved-movies-search-form__invisible-checkbox {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -93,7 +84,7 @@
 }
 
 /* выключенный */
-.search-form__visible-checkbox {
+.saved-movies-search-form__visible-checkbox {
   display: inline-block;
   vertical-align: middle;
   width: 36px;
@@ -105,7 +96,7 @@
 }
 
 /* выбранный :checked */
-.search-form__visible-checkbox_checked {
+.saved-movies-search-form__visible-checkbox_checked {
   display: inline-block;
   vertical-align: middle;
   width: 36px;
@@ -117,7 +108,7 @@
 }
 
 /* в фокусе */
-.search-form__visible-checkbox:focus {
+.saved-movies-search-form__visible-checkbox:focus {
   box-shadow: 0 0 5px #fff6c5;
   display: inline-block;
   vertical-align: middle;
@@ -128,14 +119,15 @@
   cursor: pointer;
 }
 
-.search-form__visible-checkbox:hover {
+.saved-movies-search-form__visible-checkbox:hover {
   opacity: 0.8;
   transition: all 1s ease;
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   -moz-transition: all 1s ease;
 }
-.search-form__visible-checkbox_checked:focus {
+
+.saved-movies-search-form__visible-checkbox_checked:focus {
   box-shadow: 0 0 5px #fff6c5;
   display: inline-block;
   vertical-align: middle;
@@ -146,14 +138,15 @@
   cursor: pointer;
 }
 
-.search-form__visible-checkbox_checked:hover {
+.saved-movies-search-form__visible-checkbox_checked:hover {
   opacity: 0.8;
   transition: all 1s ease;
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   -moz-transition: all 1s ease;
 }
-.search-form__checkbox-text {
+
+.saved-movies-search-form__checkbox-text {
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -165,69 +158,68 @@
 }
 
 @media screen and (max-width: 768px) {
-  .search-form {
+  .saved-movies-search-form {
     max-width: 768px;
     margin: 0 30px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .search-form__checkbox-wrap {
+  .saved-movies-search-form__checkbox-wrap {
     flex-direction: row-reverse;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .search-form__checkbox-text {
+  .saved-movies-search-form__checkbox-text {
     margin: 1px 16px 0 0;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .search-form__visible-checkbox {
+  .saved-movies-search-form__visible-checkbox {
     margin-right: 0;
   }
 }
 @media screen and (max-width: 768px) {
-  .search-form__visible-checkbox_checked {
+  .saved-movies-search-form__visible-checkbox_checked {
     margin-right: 0;
   }
 }
-
 @media screen and (max-width: 768px) {
-  .search-form__input {
+  .saved-movies-search-form__input {
     max-width: 100px;
     padding: 0;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .search-form {
+  .saved-movies-search-form {
     max-width: 320px;
     margin: 0 14px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .search-form__checkbox-text {
+  .saved-movies-search-form__checkbox-text {
     margin: 1px 13px 0 0;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .search-form__checkbox-wrap {
+  .saved-movies-search-form__checkbox-wrap {
     justify-content: center;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .search-form__checkbox-wrap {
+  .saved-movies-search-form__checkbox-wrap {
     align-content: center;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .search-form__checkbox-wrap {
+  .saved-movies-search-form__checkbox-wrap {
     align-content: center;
   }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import AboutMe from './AboutMe.js';
-// import NavTab from './NavTab.js';
 import Portfolio from './Portfolio.js';
 import Promo from './Promo.js';
 import Techs from './Techs.js';
@@ -12,7 +11,6 @@ function Main() {
     <main className='main'>
       <Promo />
       <Aboutproject />
-      {/* <NavTab /> */}
       <Techs />
       <AboutMe />
       <Portfolio />

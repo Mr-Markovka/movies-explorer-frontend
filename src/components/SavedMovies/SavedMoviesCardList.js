@@ -1,46 +1,48 @@
 import React from 'react';
-// import SavedMoviesCardList from './SavedMoviesCardList';
-import pic1 from '../../images/1.jpg';
-import pic2 from '../../images/2.jpg';
-import pic3 from '../../images/3.jpg';
-
+import SavedMoviesCard from './SavedMoviesCard';
 import './SavedMoviesCardList.css';
 
-function SavedMoviesCardList() {
+function SavedMoviesCardList(props) {
+  const savedMovie = props.savedMovies.filter((movie) => {
+    if (props.searchQuerySM === '' && props.isChecked === true) {
+      return movie.duration <= 40;
+    } else if (props.searchQuerySM !== '' && props.isChecked === true) {
+      return (
+        movie.duration <= 40 &&
+        movie.nameRU.toLowerCase().includes(props.searchQuerySM.toLowerCase())
+      );
+    } else if (props.searchQuerySM === '' && props.isChecked === false) {
+      return movie.nameRU
+        .toLowerCase()
+        .includes(props.searchQuerySM.toLowerCase());
+    } else {
+      return movie;
+    }
+  });
+
+  const notSavedMovies =
+    savedMovie.length === 0 && props.isChecked === false ? (
+      <div className='saved-movies-cards__notFound'>
+        Нет сохраненных фильмов
+      </div>
+    ) : (
+      savedMovie.map((item) => (
+        <SavedMoviesCard
+          key={item._id}
+          savedMovie={item}
+          alt={item.nameRU}
+          src={item.image}
+          nameRU={item.nameRU}
+          duration={item.duration}
+          trailerLink={item.trailer}
+          onMovieDelete={props.onMovieDelete}
+        />
+      ))
+    );
+
   return (
     <section className='saved-movies-cards'>
-      <ul className='cards__list'>
-        {/* <SavedMoviesCard /> */}
-        <li className='saved-movies-card saved-movies-card__item '>
-          <button className='saved-movies-card__delete' type='button' />
-
-          <img className='saved-movies-card__img' alt='#' src={pic1} />
-          <div className='saved-movies-card__bottom'>
-            <h3 className='saved-movies-card__title'>33 слова о дизайне</h3>
-            <p className='saved-movies-card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='saved-movies-card saved-movies-card__item '>
-          <button className='saved-movies-card__delete_active' type='button' />
-          <img className='saved-movies-card__img' alt='#' src={pic2} />
-          <div className='saved-movies-card__bottom'>
-            <h3 className='saved-movies-card__title'>
-              Киноальманах «100 лет дизайна»
-            </h3>
-            <p className='saved-movies-card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='saved-movies-card saved-movies-card__item '>
-          {/* <button className='saved-movies-card__delete saved-movies-card__delete_active' type='button'/> */}
-          <img className='saved-movies-card__img' alt='#' src={pic3} />
-          <div className='saved-movies-card__bottom'>
-            <h3 className='saved-movies-card__title'>В погоне за Бенкси</h3>
-            <p className='saved-movies-card__timer'>1ч 17м</p>
-          </div>
-        </li>
-      </ul>
+      <ul className='saved-movies-cards__list'>{notSavedMovies}</ul>
     </section>
   );
 }

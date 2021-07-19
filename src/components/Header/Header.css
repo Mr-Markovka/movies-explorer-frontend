@@ -37,8 +37,7 @@
 .header__block_auth {
   width: 396px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .header__logo {
@@ -49,7 +48,7 @@
 
 /* signin, signup */
 .header__logo_auth {
-  margin: 70px auto 40px auto;
+  margin: 70px auto 0 auto;
 }
 
 .header__link {
@@ -177,6 +176,13 @@
     display: none;
   }
 }
+/* signin, signup */
+@media screen and (max-width: 768px) {
+  .header__logo_auth {
+    display: block;
+    margin: 232px auto 0 0;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .header__link_active {
@@ -188,7 +194,7 @@
 @media screen and (max-width: 500px) {
   .header__logo_auth {
     display: block;
-    margin: 56px auto 50px auto;
+    margin: 56px auto 0 auto;
   }
 }
 

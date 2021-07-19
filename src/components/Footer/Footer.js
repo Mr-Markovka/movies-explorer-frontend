@@ -14,11 +14,11 @@ function Footer() {
       <div className='footer__bottom'>
         <p className='footer__date'>&copy;{`${new Date().getFullYear()}`}</p>
 
-        <nav class='footer__column'>
-          <ul class='footer__column-links'>
-            <li class='footer__item'>
+        <nav className='footer__column'>
+          <ul className='footer__column-links'>
+            <li className='footer__item'>
               <a
-                class='footer__column-link'
+                className='footer__column-link'
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://praktikum.yandex.ru'
@@ -26,9 +26,9 @@ function Footer() {
                 Яндекс.Практикум
               </a>
             </li>
-            <li class='footer__item'>
+            <li className='footer__item'>
               <a
-                class='footer__column-link'
+                className='footer__column-link'
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://github.com'
@@ -36,9 +36,9 @@ function Footer() {
                 Github
               </a>
             </li>
-            <li class='footer__item'>
+            <li className='footer__item'>
               <a
-                class='footer__column-link'
+                className='footer__column-link'
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://www.facebook.com'

@@ -1,4 +1,4 @@
-/* .card__item {
+.card__item {
   border-radius: 6px;
   background-color: #202020;
   max-width: 360px;
@@ -9,9 +9,15 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-} */
+  z-index: 99;
+}
 
-/* .card__like {
+.cards__link {
+  text-decoration: none;
+  list-style: none;
+  display: block;
+}
+.card__like {
   height: 21px;
   min-width: 72px;
   padding: 0;
@@ -26,8 +32,8 @@
   background-color: transparent;
   background-image: url(../../images/save.svg);
   cursor: pointer;
-} */
-/* 
+}
+
 .card__like:hover {
   opacity: 0.8;
   transition: all 1s ease;
@@ -59,9 +65,10 @@
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   -moz-transition: all 1s ease;
-} */
-/* .card__img {
-  width: 100%;
+}
+
+.card__img {
+  width: 360px;
   height: 201px;
   background-color: #202020;
   border-radius: 6px;
@@ -85,10 +92,10 @@
   line-height: 16px;
   letter-spacing: 0em;
   color: #fff;
-  margin: 14px 0 14px 14px;
-} */
+  margin: 0;
+}
 
-/* .card__timer {
+.card__duration {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,5 +108,67 @@
   font-weight: 400;
   line-height: 10px;
   text-align: center;
-  margin: 14px 14px 14px 0;
-} */
+  margin: 0;
+}
+
+@media screen and (max-width: 1141px) {
+  .card__img {
+    width: 339px;
+    height: 190px;
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 1141px) {
+  .card__item {
+    width: 339px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1141px) {
+  .card__bottom {
+    width: 339px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .card__img {
+    width: 360px;
+    height: 201px;
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .card__item {
+    width: 360px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .card__bottom {
+    width: 360px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .card__item {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .card__img {
+    width: 300px;
+    height: 168px;
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .card__bottom {
+    width: 300px;
+  }
+}

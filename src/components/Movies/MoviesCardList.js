@@ -1,158 +1,91 @@
 import React from 'react';
-// import MoviesCard from './MoviesCard';
-import pic1 from '../../images/1.jpg';
-import pic2 from '../../images/2.jpg';
-import pic3 from '../../images/3.jpg';
-import pic4 from '../../images/4.jpg';
-import pic5 from '../../images/5.jpg';
-import pic6 from '../../images/6.jpg';
-import pic7 from '../../images/7.jpg';
-import pic8 from '../../images/8.jpg';
-import pic9 from '../../images/9.jpg';
-import pic10 from '../../images/10.jpg';
-import pic11 from '../../images/11.jpg';
-import pic12 from '../../images/12.jpg';
+import { useState, useEffect } from 'react';
+import MoviesCard from './MoviesCard';
 import './MoviesCardList.css';
 
-function MoviesCardList() {
+function MoviesCardList(props) {
+  const [visibleMovies, setVisibleMovies] = useState(1);
+  const [showMoreMovies, setShowMoreMovies] = useState(1);
+  const [width] = useWindowSize();
+
+  function useWindowSize() {
+    const [size, setSize] = useState([window.innerWidth]);
+    useEffect(() => {
+      const handleResize = () => {
+        setSize([window.innerWidth]);
+      };
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+    return size;
+  }
+
+  useEffect(() => {
+    if (width <= 480) {
+      setVisibleMovies(5);
+      setShowMoreMovies(2);
+    } else if (width <= 768) {
+      setVisibleMovies(8);
+      setShowMoreMovies(2);
+    } else {
+      setVisibleMovies(12);
+      setShowMoreMovies(3);
+    }
+  }, [width]);
+
+  const showMore = () => {
+    setVisibleMovies((prevVaiue) => prevVaiue + showMoreMovies);
+  };
+
+  const movie = props.movies.filter((movie) => {
+    if (props.inputSQ === '') {
+      return movie;
+    } else if (props.isChecked === true) {
+      return (
+        movie.duration <= 40 &&
+        movie.nameRU.toLowerCase().includes(props.inputSQ.toLowerCase())
+      );
+    } else if (props.isChecked === false) {
+      return movie.nameRU.toLowerCase().includes(props.inputSQ.toLowerCase());
+    } else {
+      //eslint
+      return movie;
+    }
+  });
+
+  const notFoundMovies =
+    movie.length === 0 ? (
+      <div className='cards__notFound'>Ничего не найдено</div>
+    ) : (
+      movie
+        .slice(0, visibleMovies)
+        .map((item) => (
+          <MoviesCard
+            key={item.id}
+            movie={item}
+            alt={item.nameRU}
+            src={item.image.url}
+            nameRU={item.nameRU}
+            duration={item.duration}
+            trailerLink={item.trailerLink}
+            onMovieSave={props.onMovieSave}
+            savedMovies={props.savedMovies}
+            onMovieSaveDelete={props.onMovieSaveDelete}
+          />
+        ))
+    );
+
   return (
     <section className='cards'>
-      <ul className='cards__list'>
-        {/* <MoviesCard /> */}
-        <li className='card card__item '>
-          <button className='card__like' type='button' />
-
-          <img className='card__img' alt='#' src={pic1} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>33 слова о дизайне</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          <button className='card__like_active' type='button' />
-          <img className='card__img' alt='#' src={pic2} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>Киноальманах «100 лет дизайна»</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic3} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>В погоне за Бенкси</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic4} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>Баския: Взрыв реальности</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic5} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>Бег это свобода</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic6} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>Книготорговцы</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic7} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>Когда я думаю о Германии ночью</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic8} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>
-              Gimme Danger: История Игги и The Stooges
-            </h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic9} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>Дженис: Маленькая девочка грустит</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic10} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>Соберись перед прыжком</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic11} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>Пи Джей Харви: A dog called money</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-
-        <li className='card card__item '>
-          {/* <button className='card__like card__like_active' type='button'>
-            Сохранить
-          </button> */}
-          <img className='card__img' alt='#' src={pic12} />
-          <div className='card__bottom'>
-            <h3 className='card__title'>По волнам: Искусство звука в кино</h3>
-            <p className='card__timer'>1ч 17м</p>
-          </div>
-        </li>
-      </ul>
-
+      <ul className='cards__list'>{notFoundMovies}</ul>
       <div className='cards__more'>
-        <button className='cards__more-button'>Ещё</button>
+        {visibleMovies < movie.length && (
+          <button className='cards__more-button' onClick={showMore}>
+            Ещё
+          </button>
+        )}
       </div>
     </section>
   );

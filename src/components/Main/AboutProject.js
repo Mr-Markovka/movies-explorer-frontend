@@ -6,7 +6,9 @@ function AboutProject() {
   return (
     <section className='project'>
       <div className='project__bottom'>
-        <h3 className='project__header'>О проекте</h3>
+        <h3 className='project__header' id={'about'}>
+          О проекте
+        </h3>
       </div>
 
       <div className='project__text-block'>

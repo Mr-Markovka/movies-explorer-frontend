@@ -28,6 +28,7 @@ function App() {
   const [isMoviesLoading, setIsMoviesLoading] = useState(false);
   const [isMoviesLoadError, setIsMoviesLoadError] = useState(null);
   const [authError, setAuthError] = useState(null);
+  const [regError, setRegError] = useState(null);
   const [currentUser, setCurrentUser] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -89,31 +90,35 @@ function App() {
   }
 
   function handleRegister({ name, email, password }) {
-    setAuthError();
+    setRegError();
     return auth
       .register(name, email, password)
       .then((res) => {
         if (res._id) {
           localStorage.setItem('userId', res._id);
+          // history.push('/signin');
           handleLogin({ email: email, password: password });
         }
       })
       .catch((err) => {
         console.log(`При регистрации: ${err.statusText}`);
         if (err.status === 409) {
-          setAuthError('Пользователь с таким email уже существует');
+          setRegError('Пользователь с таким email уже существует');
         } else if (err.status === 400) {
-          setAuthError('При регистрации пользователя произошла ошибка');
+          setRegError('При регистрации пользователя произошла ошибка');
         }
       });
   }
 
   function handleLogin({ email, password }) {
+    console.log('handleLogin:', email, password);
     setAuthError();
     return auth
       .authorize(email, password)
       .then((data) => {
+        console.log('authorize:', data);
         if (data.token) {
+          console.log('authorize:', data.token);
           setLoggedIn(true);
           localStorage.setItem('jwt', data.token);
           history.push('/movies');
@@ -121,6 +126,7 @@ function App() {
         }
       })
       .catch((err) => {
+        console.log(err);
         console.log(`При авторизации: ${err.statusText}`);
         if (err.status === 401) {
           setAuthError('Вы ввели неправильный логин или пароль');
@@ -275,7 +281,7 @@ function App() {
             <Login onLogin={handleLogin} authError={authError} />
           </Route>
           <Route path='/signup'>
-            <Register onRegister={handleRegister} authError={authError} />
+            <Register onRegister={handleRegister} regError={regError} />
           </Route>
           <Route path='*'>
             <PageNotFound />

@@ -71,6 +71,7 @@ class MainApi {
 
 const config = {
   baseUrl: 'https://api.films-rover.nomoredomains.icu',
+  // baseUrl: "http://localhost:3001",
   headers: {
     'Content-Type': 'application/json',
   },

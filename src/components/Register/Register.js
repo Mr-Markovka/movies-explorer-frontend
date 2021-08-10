@@ -157,7 +157,7 @@ function Register(props) {
         </label>
 
         <div className='register__wrap'>
-          <span className='register__request-error'>{props.authError}</span>
+          <span className='register__request-error'>{props.regError}</span>
           <button
             disabled={!formValid}
             className={`register__btn-submit ${

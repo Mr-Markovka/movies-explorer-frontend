@@ -1,6 +1,8 @@
 export const BASE_URL = 'https://api.films-rover.nomoredomains.icu';
+// export const BASE_URL = "http://localhost:3001";
 
 const checkResponse = (res) => {
+  // console.log('### auth-checkResponse', res);
   if (!res.ok) {
     return Promise.reject(res);
   }
@@ -21,6 +23,7 @@ export const register = (name, email, password) => {
 
 /* POST /signin ( email, password )*/
 export const authorize = (email, password) => {
+  console.log('### auth-authorize', email, password);
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     headers: {

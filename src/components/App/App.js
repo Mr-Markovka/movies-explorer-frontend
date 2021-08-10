@@ -90,14 +90,20 @@ function App() {
   }
 
   function handleRegister({ name, email, password }) {
+   
+    console.log('FRONT-APP###При регистрации:',  name, email, password );
     setRegError();
     return auth
       .register(name, email, password)
+      
       .then((res) => {
+        console.log('FRONT-APP###При регистрации-res:',  res );
         if (res._id) {
           localStorage.setItem('userId', res._id);
           // history.push('/signin');
           handleLogin({ email: email, password: password });
+          console.log('FRONT-APP###При регистрации-handleLogin:',  handleLogin );
+          console.log('FRONT-APP###При регистрации-handleLogin:',  { email: email, password: password });
         }
       })
       .catch((err) => {

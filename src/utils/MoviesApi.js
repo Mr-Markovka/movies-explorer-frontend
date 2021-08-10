@@ -19,7 +19,7 @@ class MoviesApi {
 }
 
 const config = {
-  baseUrl: 'http://api.nomoreparties.co/beatfilm-movies',
+  baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
   // baseUrl: "http://localhost:3001",
   headers: {
     'Content-Type': 'application/json',

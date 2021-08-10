@@ -100,9 +100,9 @@ function App() {
         console.log('FRONT-APP###handleRegister-res:',  res );
         if (res._id) {
           localStorage.setItem('userId', res._id);
-          history.push('/signin');
-          // handleLogin({ email: email, password: password });
-          // console.log('FRONT-APP###handleRegister---handleLogin:',  { email: email, password: password });
+          // history.push('/signin');
+          handleLogin({ email: email, password: password });
+          console.log('FRONT-APP###handleRegister---handleLogin:',  { email: email, password: password });
         }
       })
       .catch((err) => {

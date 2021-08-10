@@ -2,7 +2,7 @@ export const BASE_URL = 'https://api.films-rover.nomoredomains.icu';
 // export const BASE_URL = "http://localhost:3001";
 
 const checkResponse = (res) => {
-  // console.log('### auth-checkResponse', res);
+  console.log('### auth-checkResponse', res);
   if (!res.ok) {
     return Promise.reject(res);
   }
@@ -11,6 +11,7 @@ const checkResponse = (res) => {
 
 /* POST /signup — создаёт пользователя с переданными в теле запроса name, email и password. */
 export const register = (name, email, password) => {
+  console.log('FRONT-auth###register:', name, email, password);
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {
@@ -23,7 +24,7 @@ export const register = (name, email, password) => {
 
 /* POST /signin ( email, password )*/
 export const authorize = (email, password) => {
-  console.log('### auth-authorize', email, password);
+  console.log('FRONT-auth###authorize:', email, password);
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     headers: {

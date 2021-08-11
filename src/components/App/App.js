@@ -91,22 +91,17 @@ function App() {
 
   function handleRegister({ name, email, password }) {
    
-    console.log('FRONT-APP###handleRegister:',  name, email, password );
     setRegError();
     return auth
       .register(name, email, password)
       
       .then((res) => {
-        console.log('FRONT-APP###handleRegister-res:',  res );
         if (res._id) {
           localStorage.setItem('userId', res._id);
-          // history.push('/signin');
           handleLogin({ email: email, password: password });
-          console.log('FRONT-APP###handleRegister---handleLogin:',  { email: email, password: password });
         }
       })
       .catch((err) => {
-        console.log('FRONT-APP###handleRegister-err-При регистрации:', err);
         console.log(`При регистрации: ${err.statusText}`);
         if (err.status === 409) {
           setRegError('Пользователь с таким email уже существует');
@@ -117,15 +112,12 @@ function App() {
   }
 
   function handleLogin({ email, password }) {
-    console.log('FRONT-APP###handleLogin:', email, password);
-  
+
     setAuthError();
     return auth
       .authorize(email, password)
       .then((data) => {
-        console.log('FRONT-APP###handleLogin:', data);
         if (data.token) {
-          console.log('FRONT-APP###handleLogin- if data.token:', data.token);
           setLoggedIn(true);
           localStorage.setItem('jwt', data.token);
           history.push('/movies');
@@ -133,7 +125,6 @@ function App() {
         }
       })
       .catch((err) => {
-        console.log('FRONT-APP###handleLogin-err-При авторизации:', err);
         console.log(`При авторизации: ${err.statusText}`);
         if (err.status === 401) {
           setAuthError('Вы ввели неправильный логин или пароль');
@@ -163,7 +154,6 @@ function App() {
         setCurrentUser(resData);
       })
       .catch((err) => {
-        console.log(err);
         console.log(`При обновлении: ${err.statusText}`);
         if (err.status === 409) {
           setAuthError('Пользователь с таким email уже существует');

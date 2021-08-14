@@ -28,7 +28,7 @@
   border-radius: 0;
 }
 
-.search-form__input:focus {
+.saved-movies-search-form__input:focus {
   border-bottom: 1px solid #4285f4;
   outline: 0;
   color: #fff;

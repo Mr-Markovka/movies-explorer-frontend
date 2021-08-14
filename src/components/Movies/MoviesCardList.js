@@ -39,27 +39,32 @@ function MoviesCardList(props) {
     setVisibleMovies((prevVaiue) => prevVaiue + showMoreMovies);
   };
 
-  const movie = props.movies.filter((movie) => {
-    if (props.inputSQ === '') {
-      return movie;
+  const films = props.movies.filter((movie) => {
+    if (props.isChecked === false) {
+      if (props.inputSQ !== '') {
+        return movie.nameRU.toLowerCase().includes(props.inputSQ.toLowerCase());
+      } else if (props.inputSQ === '') {
+        return movie.nameRU.toLowerCase().includes(props.inputSQ.toLowerCase());
+      } else {
+        return movie;
+      }
     } else if (props.isChecked === true) {
-      return (
-        movie.duration <= 40 &&
-        movie.nameRU.toLowerCase().includes(props.inputSQ.toLowerCase())
-      );
-    } else if (props.isChecked === false) {
-      return movie.nameRU.toLowerCase().includes(props.inputSQ.toLowerCase());
-    } else {
-      //eslint
-      return movie;
+      if (props.inputSQ === '' && props.isChecked === true) {
+        return movie.duration <= 40;
+      } else if (props.inputSQ !== '' && props.isChecked === true) {
+        return (
+          movie.duration <= 40 &&
+          movie.nameRU.toLowerCase().includes(props.inputSQ.toLowerCase())
+        );
+      }
     }
   });
 
   const notFoundMovies =
-    movie.length === 0 ? (
+    films.length === 0 ? (
       <div className='cards__notFound'>Ничего не найдено</div>
     ) : (
-      movie
+      films
         .slice(0, visibleMovies)
         .map((item) => (
           <MoviesCard
@@ -81,7 +86,7 @@ function MoviesCardList(props) {
     <section className='cards'>
       <ul className='cards__list'>{notFoundMovies}</ul>
       <div className='cards__more'>
-        {visibleMovies < movie.length && (
+        {visibleMovies < films.length && (
           <button className='cards__more-button' onClick={showMore}>
             Ещё
           </button>

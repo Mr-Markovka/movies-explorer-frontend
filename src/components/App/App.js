@@ -40,6 +40,7 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
+    const BeatFilms = JSON.parse(localStorage.getItem('BeatFilms'));
     if (loggedIn) {
       mainApi
         .getUserInfo(token)
@@ -47,6 +48,7 @@ function App() {
           setLoggedIn(true);
           localStorage.setItem('loggedIn', loggedIn);
           setCurrentUser(userData);
+          setMovies(BeatFilms);
         })
         .catch((err) => {
           console.log(err);
@@ -90,11 +92,10 @@ function App() {
   }
 
   function handleRegister({ name, email, password }) {
-   
     setRegError();
     return auth
       .register(name, email, password)
-      
+
       .then((res) => {
         if (res._id) {
           localStorage.setItem('userId', res._id);
@@ -112,7 +113,6 @@ function App() {
   }
 
   function handleLogin({ email, password }) {
-
     setAuthError();
     return auth
       .authorize(email, password)

@@ -8,6 +8,7 @@ import './Movies.css';
 
 function Movies(props) {
   const [isChecked, setIsChecked] = useState(false);
+
   function handleCheckbox() {
     setIsChecked(!isChecked);
   }

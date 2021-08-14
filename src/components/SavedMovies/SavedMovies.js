@@ -7,10 +7,11 @@ import './SavedMovies.css';
 
 function SavedMovies(props) {
   const [searchQuerySM, setSearchQuerySM] = useState('');
-  const [isChecked, setIsChecked] = useState(false);
+
+  const [isCheckedSM, setIsCheckedSM] = useState(false);
 
   function handleCheckbox() {
-    setIsChecked(!isChecked);
+    setIsCheckedSM(!isCheckedSM);
   }
 
   function searchRequestSM(film) {
@@ -28,7 +29,7 @@ function SavedMovies(props) {
         savedMovies={props.savedMovies}
         onMovieDelete={props.onMovieDelete}
         searchQuerySM={searchQuerySM}
-        isChecked={isChecked}
+        isCheckedSM={isCheckedSM}
       />
     </main>
   );

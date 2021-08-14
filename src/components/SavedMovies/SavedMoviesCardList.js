@@ -3,30 +3,38 @@ import SavedMoviesCard from './SavedMoviesCard';
 import './SavedMoviesCardList.css';
 
 function SavedMoviesCardList(props) {
-  const savedMovie = props.savedMovies.filter((movie) => {
-    if (props.searchQuerySM === '' && props.isChecked === true) {
-      return movie.duration <= 40;
-    } else if (props.searchQuerySM !== '' && props.isChecked === true) {
-      return (
-        movie.duration <= 40 &&
-        movie.nameRU.toLowerCase().includes(props.searchQuerySM.toLowerCase())
-      );
-    } else if (props.searchQuerySM === '' && props.isChecked === false) {
-      return movie.nameRU
-        .toLowerCase()
-        .includes(props.searchQuerySM.toLowerCase());
-    } else {
-      return movie;
+  const savedFilms = props.savedMovies.filter((movie) => {
+    if (props.isCheckedSM === false) {
+      if (props.searchQuerySM !== '') {
+        return movie.nameRU
+          .toLowerCase()
+          .includes(props.searchQuerySM.toLowerCase());
+      } else if (props.searchQuerySM === '') {
+        return movie.nameRU
+          .toLowerCase()
+          .includes(props.searchQuerySM.toLowerCase());
+      } else {
+        return movie;
+      }
+    } else if (props.isCheckedSM === true) {
+      if (props.searchQuerySM === '' && props.isCheckedSM === true) {
+        return movie.duration <= 40;
+      } else if (props.searchQuerySM !== '' && props.isCheckedSM === true) {
+        return (
+          movie.duration <= 40 &&
+          movie.nameRU.toLowerCase().includes(props.searchQuerySM.toLowerCase())
+        );
+      }
     }
   });
 
   const notSavedMovies =
-    savedMovie.length === 0 && props.isChecked === false ? (
+    savedFilms.length === 0 && props.isCheckedSM === false ? (
       <div className='saved-movies-cards__notFound'>
         Нет сохраненных фильмов
       </div>
     ) : (
-      savedMovie.map((item) => (
+      savedFilms.map((item) => (
         <SavedMoviesCard
           key={item._id}
           savedMovie={item}

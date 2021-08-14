@@ -6,6 +6,7 @@ import './Profile.css';
 
 function Profile(props) {
   const currentUser = useContext(CurrentUserContext);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
@@ -14,11 +15,8 @@ function Profile(props) {
   const [nameError, setNameError] = useState('Введены некорректные данные');
   const [emailError, setEmailError] = useState('Введены некорректные данные');
   const [formValid, setFormValid] = useState(false);
-
-  useEffect(() => {
-    setName(currentUser.name);
-    setEmail(currentUser.email);
-  }, [currentUser]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -50,11 +48,16 @@ function Profile(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsSubmitting(true);
     props.onUpdateUser({
       name,
       email,
     });
+    setIsSubmitting(false);
     setFormValid(false);
+    setName('');
+    setEmail('');
+    setSuccess('Профиль успешно сохранен');
   }
   useEffect(() => {
     if (nameError || emailError) {
@@ -103,6 +106,7 @@ function Profile(props) {
               autoComplete='off'
               required
               onBlur={(e) => blurHandler(e)}
+              disabled={isSubmitting}
             />
             {nameDirtu && nameError && (
               <span className='profile__input-error'>{nameError}</span>
@@ -126,6 +130,7 @@ function Profile(props) {
               autoComplete='off'
               required
               onBlur={(e) => blurHandler(e)}
+              disabled={isSubmitting}
             />
             {emailDirtu && emailError && (
               <span className='profile__input-error'>{emailError}</span>
@@ -136,11 +141,12 @@ function Profile(props) {
         </div>
         <div className='profile__wrap'>
           <span className='profile__request-error'>{props.authError}</span>
+          <span className='profile__request-success'>{success}</span>
           <button
             className={`${!formValid && 'profile__submit-button'} ${
               formValid && 'profile__btn-submit-edit'
             }`}
-            disabled={!formValid}
+            disabled={!formValid && !isSubmitting}
             type='submit'
           >
             Редактировать

@@ -4,6 +4,7 @@ import MoviesCard from './MoviesCard';
 import './MoviesCardList.css';
 
 function MoviesCardList(props) {
+  console.log('###props.movies', props.movies);
   const [visibleMovies, setVisibleMovies] = useState(1);
   const [showMoreMovies, setShowMoreMovies] = useState(1);
   const [width] = useWindowSize();

@@ -48,7 +48,9 @@ function App() {
           setLoggedIn(true);
           localStorage.setItem('loggedIn', loggedIn);
           setCurrentUser(userData);
-          setMovies(BeatFilms);
+          if (BeatFilms !== null) {
+            setMovies(BeatFilms);
+          }
         })
         .catch((err) => {
           console.log(err);

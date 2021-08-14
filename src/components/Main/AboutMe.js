@@ -21,10 +21,10 @@ function AboutMe() {
             заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
 
-          <ul class='student__links'>
-            <li class='student__item'>
+          <ul className='student__links'>
+            <li className='student__item'>
               <a
-                class='student__link'
+                className='student__link'
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://www.facebook.com'
@@ -32,9 +32,9 @@ function AboutMe() {
                 Facebook
               </a>
             </li>
-            <li class='student__item'>
+            <li className='student__item'>
               <a
-                class='student__link'
+                className='student__link'
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://github.com'

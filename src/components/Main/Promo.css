@@ -32,9 +32,6 @@
 }
 
 .promo__button {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
   width: 129px;
   height: 36px;
   margin: 0 auto 75px 0;
@@ -42,7 +39,6 @@
   background-color: #073042;
   border-color: #fff;
   border-radius: 3px;
-  color: #fff;
   text-align: center;
   cursor: pointer;
 }
@@ -55,6 +51,13 @@
   -moz-transition: all 1s ease;
 }
 
+.promo__anchor {
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
 .promo__img {
   margin: 75px 0 145px 0;
   width: 310px;

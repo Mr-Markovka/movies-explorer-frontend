@@ -1,15 +1,36 @@
 import React from 'react';
-import SearchForm from '../Movies/SearchForm.js';
+import { useState } from 'react';
+import SavedMoviesSearchForm from '../SavedMovies/SavedMoviesSearchForm.js';
 import SavedMoviesCardList from './SavedMoviesCardList.js';
-// import Preloader from '../Movies/Preloader.js';
+
 import './SavedMovies.css';
 
-function SavedMovies() {
+function SavedMovies(props) {
+  const [searchQuerySM, setSearchQuerySM] = useState('');
+
+  const [isCheckedSM, setIsCheckedSM] = useState(false);
+
+  function handleCheckbox() {
+    setIsCheckedSM(!isCheckedSM);
+  }
+
+  function searchRequestSM(film) {
+    setSearchQuerySM(film);
+  }
+
   return (
     <main className='saved-movies'>
-      <SearchForm />
-      {/* <Preloader /> */}
-      <SavedMoviesCardList />
+      <SavedMoviesSearchForm
+        onCheckboxSM={handleCheckbox}
+        onSearchRequestSM={searchRequestSM}
+      />
+
+      <SavedMoviesCardList
+        savedMovies={props.savedMovies}
+        onMovieDelete={props.onMovieDelete}
+        searchQuerySM={searchQuerySM}
+        isCheckedSM={isCheckedSM}
+      />
     </main>
   );
 }

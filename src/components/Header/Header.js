@@ -1,24 +1,47 @@
 import React from 'react';
 import logo from '../../images/logo.svg';
 import { Link, Route } from 'react-router-dom';
+import Navigation from '../../components/Navigation/Navigation.js';
 import './Header.css';
 
-function Header() {
+function Header(props) {
+  const headerLoggedIn = props.loggedIn ? (
+    <>
+      <div className='header__block header__block_movies'>
+        <Link to='/movies' className='header__link header__movies'>
+          Фильмы
+        </Link>
+        <Link to='/saved-movies' className='header__link header__movies'>
+          Сохранённые фильмы
+        </Link>
+      </div>
+      <div className='header__block header__block_profile'>
+        <Link to='/profile' className='header__link header__profile'>
+          Аккаунт
+        </Link>
+        <div className='header__profile-logo' />
+      </div>
+    </>
+  ) : (
+    <div className='header__block header__block_landing'>
+      <Link to='/signup' className='header__link header__link_auth'>
+        Регистрация
+      </Link>
+
+      <Link to='/signin'>
+        <button className='header__signin-button'>Войти</button>
+      </Link>
+    </div>
+  );
+
   return (
     <>
       <Route exact path='/'>
-        <header className='header header_landing'>
+        <header className='header header_landing header_burger'>
           <img className='header__logo' alt='Логотип.' src={logo} />
-          <div className='header__block header__block_landing'>
-            <Link to='/signup' className='header__link header__link_auth'>
-              Регистрация
-            </Link>
-
-            <Link to='/signin'>
-              <button className='header__signin-button'>Войти</button>
-            </Link>
-          </div>
+          {headerLoggedIn}
         </header>
+        <Navigation loggedIn={props.loggedIn} />
       </Route>
 
       <Route path='/movies'>
@@ -41,6 +64,7 @@ function Header() {
             <div className='header__profile-logo' />
           </div>
         </header>
+        <Navigation loggedIn={props.loggedIn} />
       </Route>
 
       <Route path='/saved-movies'>
@@ -64,6 +88,7 @@ function Header() {
             <div className='header__profile-logo' />
           </div>
         </header>
+        <Navigation loggedIn={props.loggedIn} />
       </Route>
 
       <Route path='/profile'>
@@ -85,6 +110,7 @@ function Header() {
             <div className='header__profile-logo' />
           </div>
         </header>
+        <Navigation loggedIn={props.loggedIn} />
       </Route>
 
       <Route path='/signup'>
@@ -93,7 +119,6 @@ function Header() {
             <Link to='/' className='header__link'>
               <img className='header__logo_auth' alt='Логотип.' src={logo} />
             </Link>
-            <p className='header__auth'>Добро пожаловать!</p>
           </div>
         </header>
       </Route>
@@ -104,7 +129,6 @@ function Header() {
             <Link to='/' className='header__link'>
               <img className='header__logo_auth' alt='Логотип.' src={logo} />
             </Link>
-            <p className='header__auth'>Рады видеть!</p>
           </div>
         </header>
       </Route>

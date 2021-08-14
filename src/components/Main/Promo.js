@@ -1,5 +1,6 @@
 import React from 'react';
 import landingLogo from '../../images/landingLogo.png';
+import { HashLink } from 'react-router-hash-link';
 import './Promo.css';
 
 function Promo() {
@@ -12,7 +13,11 @@ function Promo() {
         <p className='promo__paragrph'>
           Листайте ниже, чтобы узнать больше про этот проект и его создателя.
         </p>
-        <button className='promo__button'>Узнать больше</button>
+        <button className='promo__button'>
+          <HashLink className='promo__anchor' to='#about'>
+            Узнать больше
+          </HashLink>
+        </button>
       </div>
       <div>
         <img
